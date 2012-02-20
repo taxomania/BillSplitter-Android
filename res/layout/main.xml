@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:paddingTop="15dp" android:paddingLeft="15dp"
+    android:paddingRight="5dp" android:background="@color/white"
+    android:layout_height="fill_parent">
+    <TextView android:id="@+id/title" android:text="@string/app_name"
+        android:textSize="15dp" android:gravity="center" android:textColor="@color/black"
+        android:textStyle="bold" android:layout_height="wrap_content"
+        android:layout_width="fill_parent" />
+    <ScrollView android:layout_width="fill_parent" android:layout_below="@+id/title"
+        android:layout_height="wrap_content">
+        <TableLayout android:stretchColumns="0,1"
+            android:paddingTop="20dp"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_marginRight="15dp">
+
+            <TableRow android:layout_height="wrap_content"
+                android:layout_width="fill_parent">
+                <TextView android:textColor="@color/black" android:text="Total Bill (£)" android:layout_weight="2"
+                    android:layout_marginRight="10dp" android:gravity="right"
+                    android:layout_column="0" />
+                <EditText android:textColor="@color/black" android:id="@+id/total"
+                    android:paddingRight="10dp" android:layout_column="1"
+                    android:minWidth="150dp" android:onClick="reset"
+                    android:layout_marginRight="10dp" android:inputType="numberDecimal"
+                    android:paddingLeft="20dp" android:layout_marginLeft="15dp" />
+            </TableRow>
+
+            <TableRow android:layout_height="wrap_content"
+                android:paddingTop="5dp" android:layout_width="fill_parent">
+                <TextView android:textColor="@color/black" android:text="Paying Guests" android:layout_weight="2"
+                    android:minLines="2" android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp" android:gravity="right|center_vertical"
+                    android:layout_column="0" />
+                <RelativeLayout android:layout_width="fill_parent"
+                    android:paddingLeft="10dp" android:layout_height="fill_parent">
+                    <TextView android:id="@+id/noGuests" android:text="4"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true" android:textColor="@color/black"
+                        android:layout_height="wrap_content" android:layout_width="wrap_content"
+                        android:gravity="center" android:paddingLeft="10dp"
+                        android:paddingRight="10dp" android:minEms="3" />
+                    <ImageView android:src="@drawable/buttonplus" android:id="@+id/plus"
+                        android:layout_toRightOf="@+id/noGuests" android:onClick="upGuest"
+                        android:layout_height="wrap_content" android:layout_width="wrap_content" />
+                    <ImageView android:layout_width="wrap_content"
+                        android:id="@+id/minus" android:onClick="downGuest"
+                        android:layout_height="wrap_content" android:src="@drawable/button"
+                        android:layout_toLeftOf="@+id/noGuests"></ImageView>
+                </RelativeLayout>
+            </TableRow>
+
+            <TableRow android:layout_height="wrap_content"
+                android:paddingTop="5dp" android:layout_width="fill_parent">
+                <TextView android:textColor="@color/black" android:text="Tip"
+                    android:minLines="2" android:layout_gravity="center_vertical"  android:layout_weight="2"
+                    android:gravity="right|center_vertical" android:layout_column="0"
+                    android:layout_marginRight="10dp" />
+                <RelativeLayout android:layout_width="fill_parent"
+                    android:paddingLeft="10dp" android:layout_height="fill_parent">
+                    <TextView android:id="@+id/tipVal" android:text="10%"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true" android:textColor="@color/black"
+                        android:layout_height="wrap_content" android:layout_width="wrap_content"
+                        android:gravity="center" android:paddingLeft="10dp"
+                        android:paddingRight="10dp" android:minEms="3" />
+                    <ImageView android:src="@drawable/buttonplus" android:id="@+id/plusTip"
+                        android:layout_toRightOf="@+id/tipVal" android:onClick="upTip"
+                        android:layout_height="wrap_content" android:layout_width="wrap_content" />
+                    <ImageView android:layout_width="wrap_content"
+                        android:id="@+id/minusTip" android:onClick="downTip"
+                        android:layout_height="wrap_content" android:src="@drawable/button"
+                        android:layout_toLeftOf="@+id/tipVal"></ImageView>
+                </RelativeLayout>
+            </TableRow>
+
+            <TableRow android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="10dp">
+                <Button android:text="Reset" android:layout_column="0"  android:layout_weight="2"
+                    android:layout_marginLeft="15dp" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:onClick="reset"
+                    android:id="@+id/reset" />
+                <Button android:text="Submit" android:layout_column="1"
+                    android:id="@+id/submit" android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:onClick="submit" />
+            </TableRow>
+
+            <TableRow android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="60dp">
+                <TextView android:textColor="@color/black"
+                    android:textSize="15dp" android:layout_marginRight="10dp" android:layout_weight="2"
+                    android:textStyle="bold" android:gravity="right" android:text="Tip" />
+                <TextView android:textSize="15dp" android:textColor="@color/black"
+                    android:gravity="right" android:id="@+id/tipTot"
+                    android:paddingRight="30dp" />
+            </TableRow>
+
+            <TableRow android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="20dp">
+                <TextView android:textColor="@color/black" android:layout_weight="2"
+                    android:textStyle="bold" android:layout_marginRight="10dp"
+                    android:gravity="right" android:textSize="15dp" android:text="Total" />
+                <TextView android:textColor="@color/black" android:gravity="right"
+                    android:textSize="15dp" android:id="@+id/tot" android:paddingRight="30dp" />
+            </TableRow>
+
+            <TableRow android:layout_width="fill_parent"
+                android:paddingTop="10dp" android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <TextView android:textColor="@color/black" android:layout_weight="2"
+                    android:textSize="20dp" android:layout_marginRight="10dp"
+                    android:textStyle="bold" android:gravity="right" android:text="Total per Person" />
+                <TextView android:textColor="@color/black"
+                    android:textSize="20dp" android:textStyle="bold" android:gravity="right"
+                    android:id="@+id/each" android:paddingRight="30dp" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>
